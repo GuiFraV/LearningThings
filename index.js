@@ -5,16 +5,38 @@
 // La fonction doit respecter les règles de tri appropriées pour les caractères accentués et les différences de casse.
 
 // const input1 = "Hello World";
-// console.log(formatString(input1)); // HLO rldWo
+// console.log(formatString(input1)); 
 
 // const input2 = "C0d1ng 1s Aw3s0m3";
-// console.log(formatString(input2)); // C0Aw3s0m3 gndmi
+// console.log(formatString(input2)); 
 
 // const input3 = "ÉlÉmEnTs ÀcCeNtUéS";
-// console.log(formatString(input3)); // ÀÉÉlMnSsÚ cctÉÉ
+// console.log(formatString(input3)); 
 
 // const input4 = "123 456 789";
-// console.log(formatString(input4)); // 789123456
+// console.log(formatString(input4)); 
 
 // const input5 = "";
 // console.log(formatString(input5));
+
+
+const etl = (s) => {
+
+
+    const Upper = (s.match(/[A-Z]/g) || []).sort().join('');
+
+    const space = (s.match(/\s/g) || [] ).length;
+    const digit = (s.match(/\d/g) || [] ).length;
+
+    const lower = (s.match(/[a-z]/g) ||[] ).reverse().join('');
+
+    return Upper + " ".repeat(digit + space)+lower
+
+}
+
+const tab = ["Hello World","C0d1ng 1s Aw3s0m3","ÉlÉmEnTs ÀcCeNtUéS","123 456 789",""]
+
+for(let i = 0 ; i < tab.length; i++){
+    
+    console.log(etl(tab[i]))
+}
