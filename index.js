@@ -69,4 +69,39 @@ const findTheMaxNumber = (input) => {
 
 }
 
-console.log(findTheMaxNumber([3, 7, 1, 9, 4]))
+// console.log(findTheMaxNumber([3, 7, 1, 9, 4]))
+
+
+
+// Exercice : Trouver la paire d'éléments dont la somme est la plus proche de zéro
+// Écrivez une fonction qui prend un tableau de nombres entiers relatifs en entrée et retourne la paire d'éléments dont la somme est la plus proche de zéro. Si plusieurs paires ont la même somme la plus proche de zéro, retournez n'importe laquelle d'entre elles.
+// Exemple
+// Input: [-4, 2, -3, 1, 6]
+// Output: [-3, 2] ou [2, -3] (la somme est -1, c'est la plus proche de zéro)
+
+
+
+const findPairNearFromZero = (input) => {
+
+
+    let extractAllPair = [];
+
+    for(let i = 0 ; i < input.length; i++){
+
+
+        if(input[i+1] !== undefined){
+
+            extractAllPair.push(input[i])
+            extractAllPair.push(input[i + 1])
+
+        
+        }
+
+
+    }
+
+    console.log(extractAllPair)
+
+}
+
+console.log(findPairNearFromZero([3, 7, 1, 9, 4]))
