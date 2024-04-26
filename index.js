@@ -36,7 +36,37 @@ const etl = (s) => {
 
 const tab = ["Hello World","C0d1ng 1s Aw3s0m3","ÉlÉmEnTs ÀcCeNtUéS","123 456 789",""]
 
-for(let i = 0 ; i < tab.length; i++){
+// for(let i = 0 ; i < tab.length; i++){
     
-    console.log(etl(tab[i]))
+//     console.log(etl(tab[i]))
+// }
+
+
+
+
+
+
+
+
+// Input: [3, 7, 1, 9, 4]
+// Output: 9
+
+const findTheMaxNumber = (input) => {
+
+
+    let max = 0;
+
+    for(let i = 0 ; i < input.length; i++){
+
+        if(max < input[i]){
+            max = input[i]
+        }
+
+    }
+
+    return max;
+
+
 }
+
+console.log(findTheMaxNumber([3, 7, 1, 9, 4]))
