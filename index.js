@@ -83,24 +83,36 @@ const findTheMaxNumber = (input) => {
 
 const findPairNearFromZero = (input) => {
 
-
     let extractAllPair = [];
+    let sommePair = []
 
     for(let i = 0 ; i < input.length; i++){
-
-
         if(input[i+1] !== undefined){
-
-            extractAllPair.push(input[i])
-            extractAllPair.push(input[i + 1])
-
-        
+            extractAllPair.push([input[i], input[i+1]])
         }
-
-
     }
 
-    console.log(extractAllPair)
+   for(let i = 0 ; i < extractAllPair.length; i++){
+      sommePair.push([extractAllPair[i][0] + extractAllPair[i][1]])
+   }
+
+   let min = sommePair[0]
+   let index = 0;
+
+   for(let i = 0 ; i < sommePair.length; i++){
+
+    if(sommePair[i+1] > min ){
+
+        min = sommePair[i + 1]
+        index = i + 1;
+    }
+
+   }
+
+    console.log(min)
+    console.log(index)
+    console.log(extractAllPair[index])
+
 
 }
 
