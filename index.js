@@ -81,39 +81,56 @@ const findTheMaxNumber = (input) => {
 
 
 
+// const findPairNearFromZero = (input) => {
+
+//     let extractAllPair = [];
+//     let sommePair = []
+
+//     for(let i = 0 ; i < input.length; i++){
+//         if(input[i+1] !== undefined){
+//             extractAllPair.push([input[i], input[i+1]])
+//         }
+//     }
+
+//    for(let i = 0 ; i < extractAllPair.length; i++){
+//       sommePair.push([extractAllPair[i][0] + extractAllPair[i][1]])
+//    }
+
+//    let min = sommePair[0]
+//    let index = 0;
+
+//    for(let i = 0 ; i < sommePair.length; i++){
+
+//     if(sommePair[i+1] > min ){
+
+//         min = sommePair[i + 1]
+//         index = i + 1;
+//     }
+
+//    }
+
+//     console.log(min)
+//     console.log(index)
+//     console.log(extractAllPair[index])
+
+
+// }
+
 const findPairNearFromZero = (input) => {
+  let pairePlusProche = [input[0], input[1]];
+  let sommePlusProche = Math.abs(input[0] + input[1]);
 
-    let extractAllPair = [];
-    let sommePair = []
-
-    for(let i = 0 ; i < input.length; i++){
-        if(input[i+1] !== undefined){
-            extractAllPair.push([input[i], input[i+1]])
-        }
+  for (let i = 0; i < input.length - 1; i++) {
+    for (let j = i + 1; j < input.length; j++) {
+      let somme = Math.abs(input[i] + input[j]);
+      if (somme < sommePlusProche) {
+        sommePlusProche = somme;
+        pairePlusProche = [input[i], input[j]];
+      }
     }
+  }
 
-   for(let i = 0 ; i < extractAllPair.length; i++){
-      sommePair.push([extractAllPair[i][0] + extractAllPair[i][1]])
-   }
+  return pairePlusProche;
+};
 
-   let min = sommePair[0]
-   let index = 0;
-
-   for(let i = 0 ; i < sommePair.length; i++){
-
-    if(sommePair[i+1] > min ){
-
-        min = sommePair[i + 1]
-        index = i + 1;
-    }
-
-   }
-
-    console.log(min)
-    console.log(index)
-    console.log(extractAllPair[index])
-
-
-}
-
-console.log(findPairNearFromZero([3, 7, 1, 9, 4]))
+console.log(findPairNearFromZero([-4, 2, -3, 1, 6]))
