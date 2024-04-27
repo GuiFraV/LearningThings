@@ -93,6 +93,30 @@ function generatePattern(n) {
 // generatePattern(4);
 
 
+function generateInvertedPattern(n) {
+    for (let i = n; i >= 1; i--) {
+        let line = '';
+
+        // Ajouter les espaces initiaux
+        for (let j = 0; j < n - i; j++) {
+            line += ' ';
+        }
+
+        // Ajouter les étoiles et les espaces entre elles
+        for (let k = 0; k < i; k++) {
+            line += '*';
+            if (k < i - 1) {  // Ajouter un espace après chaque étoile sauf la dernière
+                line += ' ';
+            }
+        }
+
+        // Afficher la ligne
+        console.log(line);
+    }
+}
+
+// Appeler la fonction avec le nombre de lignes souhaité
+generateInvertedPattern(4);
 
 
 
