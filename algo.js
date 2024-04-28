@@ -32,4 +32,40 @@ const transformString = (input) => {
 
 }
 
-console.log(transformString(input2))
+// console.log(transformString(input2))
+
+
+// Exercice : Trouver la paire d'éléments dont la somme est la plus proche de zéro
+// Écrivez une fonction qui prend un tableau de nombres entiers relatifs en entrée et retourne la paire d'éléments dont la somme est la plus proche de zéro. Si plusieurs paires ont la même somme la plus proche de zéro, retournez n'importe laquelle d'entre elles.
+// Exemple
+// Input: [-4, 2, -3, 1, 6]
+// Output: [-3, 2] ou [2, -3] (la somme est -1, c'est la plus proche de zéro)
+
+const findPair = (input) => {
+
+
+    let pair = [input[0], input[1]];
+    let somme = Math.abs(input[0] + input[1]);
+
+    for(let i = 0 ; i < input.length -1; i++){
+
+        for(let j = i + 1; j < input.length; j++){
+
+
+            let temp = Math.abs(input[i] + input[j])
+
+            if(temp < somme){
+                somme = temp
+                pair = [input[i] , input[j]]
+            }
+
+        }
+    }
+
+    return pair;
+
+
+}
+
+
+console.log(findPair([-4, 2, -3, 1, 6]))
