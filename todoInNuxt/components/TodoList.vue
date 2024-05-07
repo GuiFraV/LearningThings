@@ -7,23 +7,32 @@
     </form>
 
     <ul>
-        <slot></slot>
+        <TodoItem 
+          v-for="todoItem in todo" 
+          :key="todoItem" 
+          :todoItem="todoItem" 
+          :removeTodo="removeTodo"
+        />
     </ul> 
   </div>
 </template>
 
 <script setup>
     const newTodo = ref("");
+    const todo = ref([]);
     
     const addTodo = () => {
-        if(newTodo.value !== "" && !props.todo.includes(newTodo.value)){
-            props.todo.push(newTodo.value);
+        if(newTodo.value !== "" && !todo.value.includes(newTodo.value)){
+            todo.value.push(newTodo.value);
             newTodo.value = "";
         }
     }
 
-    const props = defineProps({
-        todo: Array,
-        removeTodo: Function
-    });
+    const removeTodo = (todoItem) => {
+        const index = todo.value.indexOf(todoItem);
+        if (index !== -1) {
+            todo.value.splice(index, 1);
+        }
+    }
+
 </script>
