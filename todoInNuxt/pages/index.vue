@@ -1,14 +1,10 @@
 <template>
   <div>
-   <h1>Welcome to the homepage</h1>
-    <AppAlert>
-      This is an auto-imported component.
-    </AppAlert>
-
+    <h1>Welcome to the homepage</h1>
+    <AppAlert>This is an auto-imported component.</AppAlert>
     <TodoList />
   </div>
 </template>
 
 <script setup>
-
 </script>

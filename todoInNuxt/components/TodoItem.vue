@@ -1,18 +1,12 @@
 <template>
   <li>
-    {{todoItem}}
-    <button @click="remove">Delete</button>
+    {{ todoItem }}
+    <button @click="$emit('removeTodo', todoItem)">Delete</button>
   </li>
 </template>
 
 <script setup>
-  const props = defineProps({
-    todoItem: String,
-    removeTodo: Function
-  });
-
-
-  const remove = () => {
-    props.removeTodo(props.todoItem);
-  };
+defineProps({
+  todoItem: String
+});
 </script>
